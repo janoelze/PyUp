@@ -13,3 +13,4 @@ You can change the default location using this command:
 
 ``` $ mkdir ~/pyup_screenshots/```<br>
 ``` $ defaults write com.apple.screencapture location ~/pyup_screenshots/```
+``` $ killall SystemUIServer ```
