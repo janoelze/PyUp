@@ -1,4 +1,4 @@
-ImgUp
+PyUp
 =====
 
 PyUp automatically uploads screenshots to [imgur.com](http://imgur.com/) and adds the image-URL to the clipboard.
