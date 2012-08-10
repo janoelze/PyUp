@@ -7,10 +7,6 @@ upload = False
 
 print 'Hej. PyUp is now watching: ' + folder_to_watch + '!'
 
-def modification_date(filename):
-	t = os.path.getmtime(filename)
-	return datetime.datetime.fromtimestamp(t)
-
 def copy(url):
 	commands.getstatusoutput('echo "'+url.strip()+'" | pbcopy')
 	commands.getstatusoutput("osascript -e 'tell app \"System Events\" to display dialog \"Upload complete!\"' ")
