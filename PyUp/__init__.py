@@ -15,12 +15,9 @@ class PyUp(object):
     def __init__(self, arg):
         self.IMGUR_API_KEY = "47e4f6aa03fa0defcaa68bf188d8026e"
         self.UPLOADED_FILES = []
-        try:
-            self.TARGET_FOLDER = sys.argv[1]
-        except:
-            raise ValueError('You must specify a screenshots folder.')
 
-    def start(self):
+    def start(self, TARGET_FOLDER):
+        self.TARGET_FOLDER = TARGET_FOLDER
         print 'Hej. PyUp is now watching: "%s"!' % self.TARGET_FOLDER
         while True:
             for filename in os.listdir(TARGET_FOLDER):

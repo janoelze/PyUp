@@ -6,8 +6,9 @@ from PyUp import PyUp
 manager = Manager()
 p = PyUp()
 
+@manager.arg('TARGET_FOLDER', help='This is the folder PyUp will be watching.')
 @manager.command
-def start():
-    return p.start()
+def start( TARGET_FOLDER ):
+    return p.start( TARGET_FOLDER )
 
 manager.main()
