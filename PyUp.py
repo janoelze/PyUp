@@ -1,13 +1,20 @@
+#!/usr/bin/python
+
 import os.path, time, sys, commands, inspect
 from xml.dom.minidom import parse, parseString
+from pync import Notifier
 
 UPLOADED_FILES = []
-TARGET_FOLDER = sys.argv[1]
+try:
+	TARGET_FOLDER = sys.argv[1]
+except:
+	raise ValueError('You must specify a screenshots folder.')  
 IMGUR_API_KEY = "47e4f6aa03fa0defcaa68bf188d8026e"
 
 def copy(url):
-	commands.getstatusoutput('echo "%s" | pbcopy' % url.strip())
-	commands.getstatusoutput("osascript -e 'tell app \"System Events\" to display dialog \"Upload complete!\"' ")
+	commands.getstatusoutput("echo '"+url.strip()+"' | tr -d '\n' | pbcopy")
+	Notifier.notify('Copied ' + url, title='PyUp: Upload complete!', open=url)
+
 
 def upload_file(filepath):
 	output = os.popen('curl -F "image=@%s" -F "key=%s" http://api.imgur.com/2/upload.xml' % ( filepath, IMGUR_API_KEY ))
