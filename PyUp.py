@@ -12,7 +12,7 @@ except:
 IMGUR_API_KEY = "47e4f6aa03fa0defcaa68bf188d8026e"
 
 def copy(url):
-	commands.getstatusoutput("echo '"+url.strip()+"' | tr -d '\n' | pbcopy")
+	commands.getstatusoutput("echo '%s' | tr -d '\n' | pbcopy" % url.strip())
 	Notifier.notify('Copied ' + url, title='PyUp: Upload complete!', open=url)
 
 
