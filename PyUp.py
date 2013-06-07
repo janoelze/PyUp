@@ -4,12 +4,12 @@ import os.path, time, sys, commands, inspect
 from xml.dom.minidom import parse, parseString
 from pync import Notifier
 
+IMGUR_API_KEY = "47e4f6aa03fa0defcaa68bf188d8026e"
 UPLOADED_FILES = []
 try:
 	TARGET_FOLDER = sys.argv[1]
 except:
 	raise ValueError('You must specify a screenshots folder.')  
-IMGUR_API_KEY = "47e4f6aa03fa0defcaa68bf188d8026e"
 
 def copy(url):
 	commands.getstatusoutput("echo '%s' | tr -d '\n' | pbcopy" % url.strip())
