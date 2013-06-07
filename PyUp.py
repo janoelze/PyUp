@@ -25,8 +25,7 @@ def main():
 	print 'Hej. PyUp is now watching: "%s"!' % TARGET_FOLDER
 	while True:
 		for filename in os.listdir(TARGET_FOLDER):
-			file_created_at = os.path.getmtime(TARGET_FOLDER + '/' + filename)
-			if (time.time() - file_created_at) < 4:
+			if (time.time() - os.path.getmtime(TARGET_FOLDER + '/' + filename)) < 4:
 				if filename not in UPLOADED_FILES:
 					upload_file(TARGET_FOLDER + filename)
 					UPLOADED_FILES.append(filename)
