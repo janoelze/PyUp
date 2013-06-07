@@ -17,8 +17,8 @@ def copy(url):
 
 
 def upload_file(filepath):
-	output = os.popen('curl -F "image=@%s" -F "key=%s" http://api.imgur.com/2/upload.xml' % ( filepath, IMGUR_API_KEY ))
-	for node in parse(output).getElementsByTagName('original'):
+	output = os.popen('curl -F "image=@%s" -F "key=%s" http://api.imgur.com/2/upload.xml' % ( filepath, IMGUR_API_KEY )).read()
+	for node in parseString(output).getElementsByTagName('original'):
 		copy(node.toxml()[10:-11])
 
 def main():
@@ -27,7 +27,7 @@ def main():
 		for filename in os.listdir(TARGET_FOLDER):
 			if (time.time() - os.path.getmtime(TARGET_FOLDER + '/' + filename)) < 4:
 				if filename not in UPLOADED_FILES:
-					upload_file(TARGET_FOLDER + filename)
+					upload_file(TARGET_FOLDER + '/' + filename)
 					UPLOADED_FILES.append(filename)
 		time.sleep(1)
 
