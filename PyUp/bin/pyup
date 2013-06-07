@@ -1,0 +1,13 @@
+#!/usr/bin/python
+
+from manage import Manager
+from PyUp import PyUp
+
+manager = Manager()
+p = PyUp()
+
+@manager.command
+def start():
+    return p.start()
+
+manager.main()
