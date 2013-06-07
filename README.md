@@ -5,11 +5,6 @@ PyUp automatically uploads screenshots to [imgur.com](http://imgur.com/) and add
 
 ### Installation
 
-Install ``pync``:
-``` $ pip install pync ```
-or
-``` $ pip install -r requirements.txt ```
-
 PyUp needs the screenshots to be saved to a dedicated location other than the desktop, as it's uploading every file added to this folder. 
 You can change the default location using these commands:
 
